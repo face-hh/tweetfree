@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "puppeteer": "^19.6.3"
+  },
+  "name": "tweetfree",
+  "description": "Twitter's API, reconstructed utilizing `puppeteer` for emulating user behavior, for free.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
