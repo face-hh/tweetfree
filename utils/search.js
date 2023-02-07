@@ -1,7 +1,7 @@
 const EventEmitter = require('events');
 const fs = require('fs');
 
-module.exports = class Client extends EventEmitter {
+module.exports = class Collector extends EventEmitter {
     constructor(client, delay) {
         super(client);
 
