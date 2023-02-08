@@ -57,7 +57,7 @@ Boilerplate:
     tweetEmitter.on('stop', ((reason) => console.log(reason)))
 ```
 
-# The code doens't keep track of sessions?
+# The code doesn't keep track of sessions?
 Yes, the code isn't able to receive the `auth_token` cookie becauase it's a HTTPOnly cookie. These can only be accessed via the extension APIs, therefore:
 - install [EditThisCookie](https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg)
 - log into twitter;
