@@ -4,7 +4,7 @@
   },
   "name": "tweetfree",
   "description": "Twitter's API, reconstructed utilizing `puppeteer` for emulating user behavior, for free.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "devDependencies": {},
   "scripts": {

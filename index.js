@@ -25,9 +25,10 @@ module.exports = class Twitter {
             'tweet_modal': '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div[1]/div/div[3]/div/div[2]/div[1]/div/div/div/div[2]/div[1]',
             'tweet_enter': '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[3]/div/div[2]/div[1]/div/div/div/div[2]/div[3]/div/div/div[2]/div[3]',
 
-            'overlay': '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div[1]/div/section/div/div/div[1]/div/div/div[1]/article/div/div/div/div[3]/div[3]',
+            'overlay': '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/section/div/div/div[1]/div/div/article',
             'heart': '//*[starts-with(@id, "id__")]/div[3]/div/div/div/div',
-            'retweet': '//*[starts-with(@id, "id__")]/div[3]/div/div/div/div',
+            'retweet': '//*[starts-with(@id, "id__")]/div[2]/div/div/div/div',
+            'retweet_confirm': '//*[@id="layers"]/div[2]/div/div/div/div[2]/div/div[3]/div/div/div/div',
 
             'profile_overlay': '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[3]/div/div/div/div',
             'following': '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[3]/div/div/div/div/div[4]/div[1]/a/span[1]/span',
@@ -112,7 +113,9 @@ module.exports = class Twitter {
 
         const nextButtonLogin = await this.page.waitForXPath(this.xpaths.login_button, { visible: true });
         await nextButtonLogin.click();
-    }
+
+        await this.sleep(2000);
+   }
 
     async tweet({ content }) {
         const activeURL = await this.page.url();
@@ -138,6 +141,11 @@ module.exports = class Twitter {
 
         const tweetModal = await this.page.$x(this.xpaths[action]);
         await tweetModal[0].click()
+
+        if(action === 'retweet'){
+            const tweetModal = await this.page.$x(this.xpaths['retweet_confirm']);
+            await tweetModal[0].click()
+        }
     }
 
     async classToContent(el) {
